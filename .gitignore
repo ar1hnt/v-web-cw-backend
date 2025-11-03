@@ -216,5 +216,5 @@ __marimo__/
 .streamlit/secrets.toml
 .env
 
-# In project
+# In Project
 .src/alembic/versions

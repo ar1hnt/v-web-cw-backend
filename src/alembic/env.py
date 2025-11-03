@@ -10,7 +10,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 
-from src.config import config as cfg  # noqa
+from src.config import settings  # noqa
 
 # MODELS ---------------------------------------------------------------------
 from src.auth.models import *  # noqa
@@ -26,7 +26,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-config.set_main_option('sqlalchemy.url', cfg.database_url_asyncpg + '?async_fallback=True')
+config.set_main_option('sqlalchemy.url', settings.database_url_asyncpg + '?async_fallback=True')
 
 target_metadata = Base.metadata
 
