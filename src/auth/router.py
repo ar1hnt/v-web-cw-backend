@@ -9,5 +9,3 @@ from fastapi import APIRouter, Depends
 
 
 router = APIRouter()
-
-SessionDepends = Annotated[AsyncSession, Depends(get_session)]

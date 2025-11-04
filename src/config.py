@@ -14,6 +14,8 @@ class Config(BaseSettings):
     DB_POSTGRESQL_PASS: Final[str]
     DB_POSTGRESQL_NAME: Final[str]
 
+    SECRET_KEY: Final[str]
+
     @property
     def database_url_asyncpg(self):
         """Ссылка на базу данных с asyncpg движком"""

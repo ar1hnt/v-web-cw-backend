@@ -13,9 +13,9 @@ USERNAME_PATTERN = r"^@[a-zA-Z0-9_]{5,32}$"  # @username, 5-32 символа
 class UserSchema(BaseModel):
     email: EmailStr
     username: Optional[str] = Field(min_length=5, max_length=30)
-    first_name: str = Field(min_length=1, max_length=256, pattern=NAME_PATTERN)
-    surname: str = Field(min_length=1, max_length=256, pattern=NAME_PATTERN)
-    patronymic: Optional[str] = Field(min_length=1, max_length=256, pattern=NAME_PATTERN, description="Отчество, если есть")
+    first_name: str = Field(min_length=1, max_length=256, pattern=NAME_PATTERN, examples=['Иван'])
+    surname: str = Field(min_length=1, max_length=256, pattern=NAME_PATTERN, examples=['Иванов'])
+    patronymic: Optional[str] = Field(min_length=1, max_length=256, pattern=NAME_PATTERN, description="Отчество, если есть", examples=['Иванович'])
     avatar_url: str
     status: Optional[str] = Field(max_length=256, description="Статус пользователя")
     gender: Optional[str] = Field(default="не указан", max_length=10, description="Пол пользователя")

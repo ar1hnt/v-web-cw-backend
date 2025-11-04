@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Optional, List
+from typing import Optional
 from datetime import datetime
 
 from src.auth.schemas import UserRead
@@ -23,10 +23,10 @@ class PostRead(PostBase):
     id: int
     created_at: datetime
     author: UserRead
-    comments: List[CommentRead] = []
-    likes_count: int = 0
+    comments: list[CommentRead] = Field(default_factory=list)
+    likes: list[PostLikeRead] = Field(default_factory=list, alias="post_likes")
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True, populate_by_name=True)
 
 
 class PostUpdate(BaseModel):

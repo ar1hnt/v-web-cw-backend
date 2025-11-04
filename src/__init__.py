@@ -4,6 +4,10 @@ from src.auth.router import router as auth_router
 from src.posts.router import router as posts_router
 from src.comments.router import router as comments_router
 
+from src.auth.models import User, OAuthAccount
+from src.posts.models import Post, PostLikes
+from src.comments.models import Comment, CommentLikes
+
 router = APIRouter()
 router.include_router(auth_router, prefix="/auth", tags=["Auth"])
 router.include_router(posts_router, prefix="/posts", tags=["Posts"])
